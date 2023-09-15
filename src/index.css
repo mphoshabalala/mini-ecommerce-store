@@ -1,0 +1,257 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #333333;
+  transition: all 0.2s ease;
+}
+
+a {
+  text-decoration: none;
+  color: #24fd53;
+}
+
+.App {
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-input {
+  width: 30rem;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+header {
+  background-color: #001f3f;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 4rem;
+  align-items: center;
+}
+
+.logo {
+  color: #d4af37;
+}
+
+.cart {
+  display: flex;
+  font-size: larger;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Define styles for the item card container */
+.card-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+
+  /* Adjust card width and height as needed */
+  width: 250px;
+  height: 300px;
+}
+
+.card-item {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+/* Style for the item image */
+.item-image {
+  width: 100%;
+  max-height: 150px; /* Adjust as needed */
+  object-fit: cover; /* Ensure the image fits within the container */
+  border-radius: 4px;
+}
+
+/* Style for the item title */
+.item-title {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+/* Style for the item price */
+.item-price {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Hover effect */
+.card-item:hover {
+  transform: translateY(-5px);
+}
+
+/* footer */
+
+/* Define styles for the footer container */
+.footer {
+  background-color: #010d14;
+  color: #ffffff; /* White text color */
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Style for the footer content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Style for the footer logo or shop name */
+.footer-logo h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Style for the footer links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Style for the social media icons */
+.footer-social a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Hover effect for social media icons */
+.footer-social a:hover {
+  color: #ffd700; /* Gold on hover */
+}
+
+.footer-logo {
+  color: #fff;
+}
+
+/* MODAL */
+
+.item-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel {
+  width: 80vw;
+}
+.cancel > p {
+  width: fit-content;
+  margin-left: auto;
+  margin: 0.6rem;
+  background-color: #fff;
+  border-radius: 20rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.main-box {
+  width: 80vw;
+  height: 80vh;
+  background-color: #f1f1f1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "description prices-details";
+  padding: 1rem;
+}
+
+.image-container {
+  height: 50vh;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.image-container > img {
+  height: 100%;
+  width: 100%;
+}
+
+.main-description {
+  height: 26vh;
+  padding: 1rem;
+  background-color: #fff;
+  margin-top: 0.5rem;
+}
+
+.price-box-1,
+.reviews {
+  background-color: #fff;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.discounted-price {
+  text-decoration: line-through;
+  color: #8f8d8d;
+}
+
+.item-description {
+  padding: 1rem 0;
+}
+
+.installments {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px dotted #8f8d8d;
+}
+
+.add-to-cart-btn {
+  background-color: rgb(57, 225, 231);
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: rgb(24, 198, 214);
+  cursor: pointer;
+}
