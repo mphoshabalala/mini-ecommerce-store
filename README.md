@@ -82,10 +82,3 @@ The project's folder structure is organized as follows:
 - `package.json`: Specifies project dependencies and scripts.
 - `README.md`: The README file you are currently reading.
 
-## Contributing
-
-Contributions to NobleWear Boutique are welcome! If you have any suggestions, bug fixes, or feature enhancements, feel free to open a pull request. Please refer to the [Contributing Guidelines](CONTRIBUTING.md) for more information.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
