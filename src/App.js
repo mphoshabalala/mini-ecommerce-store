@@ -217,7 +217,7 @@ export default function App() {
 
     return ItemsInLocalStorage || [];
   });
-
+  const [isCartOpen, setCartOpen] = useState(false);
   function handleSelectedItem(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
@@ -240,7 +240,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header cartItems={cartItems}>
+      <Header cartItems={cartItems} setCartOpen={setCartOpen}>
         <Search />
       </Header>
       <Main>
@@ -253,18 +253,20 @@ export default function App() {
             onAddToCart={handleAddToCart}
           />
         )}
+
+        {isCartOpen && <Cart cartItems={cartItems} />}
       </Main>
       <Footer />
     </div>
   );
 }
 
-function Header({ children, cartItems }) {
+function Header({ children, cartItems, setCartOpen }) {
   return (
     <header>
       <h2 className="logo">NobleWear Boutique</h2>
       {children}
-      <div className="cart">
+      <div className="cart" onClick={() => setCartOpen((prev) => !prev)}>
         {cartItems.length}
         <span>🛍️</span>
       </div>
@@ -374,7 +376,7 @@ function ItemDetails({ selectedId, items, onRemoveModal, onAddToCart }) {
         <div className="prices-details">
           <div className="price-box-1">
             <h1>R{(item.price - (item.price * 10) / 100).toFixed(2)}</h1>
-            <p>{item.price > 100 && <h5>FREE DELIVERY</h5>} </p>
+            {item.price > 100 && <h5>FREE DELIVERY</h5>}
             <p className="discounted-price">R{item.price.toFixed(2)}</p>
             <p>10% OFF</p>
             <p className="installments">
@@ -401,6 +403,27 @@ function ItemDetails({ selectedId, items, onRemoveModal, onAddToCart }) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Cart({ cartItems }) {
+  // const totalPrice = cartItems.map((item) => item.price++);
+  // console.log(totalPrice);
+  return (
+    <div className="cart-container">
+      {cartItems.map((cartItem) => (
+        <div className="main-item" key={cartItem.id}>
+          <p>{cartItem.title}</p>
+          <div>
+            <p>R{cartItem.price}</p>
+            <div>
+              <button className="buy-item-btn">Buy</button>
+              <p>🚮</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
