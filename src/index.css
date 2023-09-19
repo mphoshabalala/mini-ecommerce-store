@@ -322,3 +322,12 @@ header {
   margin: 0 1rem;
   cursor: pointer;
 }
+
+/* loading */
+
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
