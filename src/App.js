@@ -14,6 +14,7 @@ export default function App() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState(function () {
     const ItemsInLocalStorage = JSON.parse(localStorage.getItem("addedToCart"));
     return ItemsInLocalStorage || [];
@@ -22,6 +23,15 @@ export default function App() {
   function handleSelectedItem(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
+
+  const searchedItems =
+    searchQuery.length > 0
+      ? items.filter((item) =>
+          `${item.title} ${item.description}`
+            .toLocaleLowerCase()
+            .includes(searchQuery.toLocaleLowerCase())
+        )
+      : items;
 
   useEffect(() => {
     async function fetchItems() {
@@ -59,12 +69,12 @@ export default function App() {
   return (
     <div className="App">
       <Header cartItems={cartItems} setCartOpen={setCartOpen}>
-        <Search />
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </Header>
       <Main>
         <ItemList
           isLoading={isLoading}
-          items={items}
+          items={searchedItems}
           onSelectedItem={handleSelectedItem}
         />
         {selectedId && (
